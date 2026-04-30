@@ -16,7 +16,8 @@ Right now, I’m focused on turning ideas into real, scalable systems — not ju
 ## 🔧 Tech Stack
 
 * **Languages:** C, C++, Python
-* **Tools:** Git, Qt, Linux 
+* **Tools:** Git, Qt, Linux
+* **Certifications:** Microsoft Azure Fundamentals (AZ-900)
 * **Currently Learning:** AWS & cloud fundamentals
 
 ---
