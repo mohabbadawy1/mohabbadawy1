@@ -26,8 +26,8 @@
 
 ### 🧠 Nudge — AI Study Assistant *(In Progress)*
 
-An app that helps students study smarter by giving personalized guidance and insights.
-Starting at AUC → aiming to scale across universities.
+* An app that helps students study smarter by giving personalized guidance and insights.
+* Starting at AUC → aiming to scale across universities.
 
 ---
 
