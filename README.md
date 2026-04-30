@@ -1,15 +1,15 @@
 # Hey, I'm Mohab 👋
 
-*🎓 Electronics & Communications Engineering student at AUC
-*☁️ Interested in Cloud Computing & Python Automation
-*🚀 Currently building **Nudge** — an AI-powered study assistant
+* 🎓 Electronics & Communications Engineering student at AUC
+* ☁️ Interested in Cloud Computing & Python Automation
+* 🚀 Currently building **Nudge** — an AI-powered study assistant
 
 ---
 
 ## 🧠 About Me
 
-*I like building things that are actually useful.
-*Right now, I’m focused on turning ideas into real, scalable systems — not just coursework projects.
+* I like building things that are actually useful.
+* Right now, I’m focused on turning ideas into real, scalable systems — not just coursework projects.
 
 ---
 
