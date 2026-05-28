@@ -1,51 +1,57 @@
 # Hey, I'm Mohab 👋
 
-* 🎓 Electronics & Communications Engineering student at AUC
-* ☁️ Interested in Cloud Computing & Python Automation
-* 🚀 Currently building **Nudge** — an AI-powered study assistant
+🎓 Electronics & Communications Engineering student at AUC  
+☁️ Cloud & Automation builder (Python • n8n • AWS • Azure)  
+🚀 Building AI and automation systems for real-world use cases  
 
 ---
 
 ## 🧠 About Me
 
-* I like building things that are actually useful.
-* Right now, I’m focused on turning ideas into real, scalable systems — not just coursework projects.
+* I build systems that solve real problems, not just academic projects.  
+* I focus on turning AI and automation into real, usable products for students and small businesses.  
+* I learn by building and shipping end-to-end systems, not just studying theory.  
 
 ---
 
 ## 🔧 Tech Stack
 
-* **Languages:** C, C++, Python
-* **Tools:** Git, Qt, Linux
-* **Certifications:** Microsoft Azure Fundamentals (AZ-900)
-* **Currently Learning:** AWS & cloud fundamentals
+* **Languages:** Python, C, C++  
+* **Automation:** n8n, API integrations, workflow automation  
+* **Cloud:** Microsoft Azure (AZ-900 certified), currently learning AWS  
+* **Tools:** Git, Linux, Vercel, basic backend deployment  
 
 ---
 
 ## 🚀 What I’m Building
 
-### 🧠 Nudge — AI Study Assistant *(In Progress)*
+### Lead Capture Automation
+📥 A system that collects, processes, and organizes leads from multiple sources automatically.
 
-* An app that helps students study smarter by giving personalized guidance and insights.
-* Starting at AUC → aiming to scale across universities.
+### Follow-up Engine
+🔁 Automated workflow system for structured customer follow-ups across channels.
+
+### Cloud Kitchen Automation
+🍔 End-to-end automation for order handling and operational workflows in food businesses.
 
 ---
 
-## 🛠️ Other Projects
+### Nudge — AI Study Assistant
+📊 An AI-powered system that helps students study more efficiently through personalized guidance and insights.
 
-* 🎮 Super Mario Game (Qt)
-* 🎓 Course Registration System (Qt)
+Originally designed for AUC students, built with scalability in mind for broader university use.
 
 ---
 
 ## 📈 What I’m Focused On
 
-* Launching Nudge 🚀
-* Getting deeper into cloud computing
-* Using Python to automate real-world problems
+* Shipping production-ready AI + automation systems  
+* Mastering Python and n8n for real-world workflows  
+* Building products that users actually rely on  
+* Moving into cloud-based SaaS infrastructure and automation systems  
 
 ---
 
 ## 📫 Let’s Connect
 
-* LinkedIn: https://www.linkedin.com/in/mohab-badawy-auc/
+* LinkedIn: https://www.linkedin.com/in/mohab-badawy-auc/
