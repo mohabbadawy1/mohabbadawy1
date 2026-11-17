@@ -1,57 +1,85 @@
-# Hey, I'm Mohab 👋
+<div align="center">
+  <img src="assets/board.svg" width="100%" alt="MB-01 — Mohab Badawy's personal mainboard: Solven, Nudge, Clinic and Cloud chips wired to a central core" />
+</div>
 
-🎓 Electronics & Communications Engineering student at AUC  
-☁️ Cloud & Automation builder (Python • n8n • AWS • Azure)  
-🚀 Building AI and automation systems for real-world use cases  
+<img src="assets/serial.svg" width="100%" alt="Serial monitor boot log" />
 
----
+### `> whoami`
 
-## 🧠 About Me
+I'm **Mohab** (`hoba` in the terminal), an **Electrical & Computer Engineering** junior at **AUC** and co-founder of **[Solven](https://solvenhq.com)**, a Cairo-based software and AI automation company working with businesses across Egypt and the GCC.
 
-* I build systems that solve real problems, not just academic projects.  
-* I focus on turning AI and automation into real, usable products for students and small businesses.  
-* I learn by building and shipping end-to-end systems, not just studying theory.  
+I like systems that actually run: real clients, real deployments, real users. Raised between **Kuwait** and **Cairo**, building for both.
 
----
+<img src="assets/trace.svg" width="100%" alt="" />
 
-## 🔧 Tech Stack
+### `> ls ./mounted-components`
 
-* **Languages:** Python, C, C++  
-* **Automation:** n8n, API integrations, workflow automation  
-* **Cloud:** Microsoft Azure (AZ-900 certified), currently learning AWS  
-* **Tools:** Git, Linux, Vercel, basic backend deployment  
+<p align="center">
+  <a href="https://solvenhq.com"><img src="assets/u1-solven.svg" width="49%" alt="Solven — software, automation and AI agents for SMEs" /></a>
+  <a href="https://studynudge.app"><img src="assets/u2-nudge.svg" width="49%" alt="Nudge — a cozy study world for university students" /></a>
+  <a href="https://dralaahussien.com"><img src="assets/u3-clinic.svg" width="49%" alt="Clinic platform — public site, booking and staff dashboard" /></a>
+  <a href="https://demo.solvenhq.com"><img src="assets/u4-ops.svg" width="49%" alt="Ops Control Engine — live demo on simulated data" /></a>
+</p>
 
----
+<img src="assets/trace.svg" width="100%" alt="" />
 
-## 🚀 What I’m Building
+### `> cat bill_of_materials.csv`
 
-### Lead Capture Automation
-📥 A system that collects, processes, and organizes leads from multiple sources automatically.
+| Ref | Part | Value |
+|:---:|:-----|:------|
+| `L1` | Languages | Python · C · C++ · TypeScript |
+| `F1` | Frameworks | Next.js · FastAPI · React |
+| `A1` | Automation | n8n · API integrations · AI agents · HubSpot |
+| `C1` | Cloud | AWS · Microsoft Azure · Vercel · Render |
+| `T1` | Tooling | Git · Linux · Terraform *(learning)* · Claude Code |
+| `S1` | Security & Infra | Exposure to CrowdStrike · FortiGate · FortiAnalyzer · enterprise networking |
 
-### Follow-up Engine
-🔁 Automated workflow system for structured customer follow-ups across channels.
+### `> cat firmware_roadmap.md`
 
-### Cloud Kitchen Automation
-🍔 End-to-end automation for order handling and operational workflows in food businesses.
+```diff
++ [done]     AZ-900 · Microsoft Azure Fundamentals
++ [done]     IT internship @ Dubizzle — infra, security tooling, telephony
+! [running]  AWS Cloud Practitioner → AWS Solutions Architect Associate
+! [running]  HashiCorp Terraform Associate
+! [running]  Nudge → public launch + App Store / Google Play
+# [queued]   DevOps / platform engineering in the GCC
+```
 
----
+<details>
+<summary><b><code>> cat datasheet.txt</code></b> — revision history &amp; operating conditions</summary>
 
-### Nudge — AI Study Assistant
-📊 An AI-powered system that helps students study more efficiently through personalized guidance and insights.
+<br/>
 
-Originally designed for AUC students, built with scalability in mind for broader university use.
+**Revision history**
 
----
+| Rev | Date | Change |
+|:---:|:-----|:-------|
+| `3.0` | 2026 | Co-founded **Solven** · General Manager |
+| `2.4` | Jul 2026 | IT Intern @ **Dubizzle** |
+| `2.0` | 2026 | Co-founded **Nudge** |
+| `1.5` | — | Internships @ **QNB Alahli** · **SIAC Construction** |
+| `1.0` | 2024 | Booted at **AUC** · 50% merit award · ECE |
 
-## 📈 What I’m Focused On
+**Recommended operating conditions**
 
-* Shipping production-ready AI + automation systems  
-* Mastering Python and n8n for real-world workflows  
-* Building products that users actually rely on  
-* Moving into cloud-based SaaS infrastructure and automation systems  
+| Parameter | Value |
+|:----------|:------|
+| Location | Cairo, EG · UTC+2 |
+| Languages (human) | English · Arabic |
+| Idle mode | PS5 · football · travel |
+| Max throughput | Late nights with a deploy queued |
 
----
+</details>
 
-## 📫 Let’s Connect
+<img src="assets/trace.svg" width="100%" alt="" />
 
-* LinkedIn: https://www.linkedin.com/in/mohab-badawy-auc/
+### `> cat pinout.txt`
+
+| Pin | Signal | Connect |
+|:---:|:-------|:--------|
+| `1` | LinkedIn | [linkedin.com/in/mohab-badawy-auc](https://www.linkedin.com/in/mohab-badawy-auc/) |
+| `2` | Email | [mohab@solvenhq.com](mailto:mohab@solvenhq.com) |
+| `3` | Company | [solvenhq.com](https://solvenhq.com) |
+| `4` | Product | [studynudge.app](https://studynudge.app) |
+
+<sub><code>MB-01 · REV 2026.11 · assembled in Cairo · do not power down</code></sub>
