@@ -33,11 +33,12 @@ def hero():
 
     # route
     ry = 214
-    for x, code, lab, col in [(76, "KWI", "KUWAIT · WHERE IT STARTED", INK),
-                              (362, "CAI", "CAIRO · HOME BASE", INK),
-                              (648, "GCC", "THE GCC · NEXT STOP", ORANGE)]:
+    for x, code, l1, l2, col in [(76, "ENG", "ENGINEERING", "ECE @ AUC '28", INK),
+                                 (362, "AUT", "AUTOMATION", "AI AGENTS · N8N · APIS", INK),
+                                 (648, "CLD", "NEXT STOP", "CLOUD · AWS · AZURE · IaC", ORANGE)]:
         body += t(x - 4, ry, code, size=94, fill=col, font=SANS, weight=700, ls=-1)
-        body += t(x, ry + 30, lab, size=10.5, fill=INK_DIM, ls=2)
+        body += t(x, ry + 28, l1, size=11, fill=col, ls=2.4, weight=600)
+        body += t(x, ry + 45, l2, size=10.5, fill=INK_DIM, ls=1.8)
     # leg 1 (flown)
     body += f'<path d="M268 178 H352" stroke="{INK}" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>'
     body += f'<g transform="translate(312 178)"><path d="{PLANE}" fill="{INK}"/></g>'
@@ -47,7 +48,8 @@ def hero():
              f'<animateMotion dur="3.2s" repeatCount="indefinite" path="M556 178 H638" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1"/></g>')
 
     # tagline
-    body += t(76, 316, "Engineering solutions with a business brain.", size=33, fill=INK, font=SERIF, style="italic")
+    body += (f'<text x="74" y="318" font-family="{DISPLAY}" font-size="34" font-weight="700" fill="{INK}" letter-spacing="-0.6">'
+             f'Engineering solutions with a <tspan fill="{ORANGE}">business brain.</tspan></text>')
     body += f'<path d="M76 340 H{SX-36}" stroke="{INK}" stroke-opacity="0.25" stroke-dasharray="3 4"/>'
 
     # fields
@@ -66,9 +68,9 @@ def hero():
     # stub
     sx = SX + 28
     body += field(sx, 132, "PASSENGER", "BADAWY / MOHAB", size=17)
-    body += field(sx, 190, "FROM", "KWI", size=26)
-    body += field(sx + 92, 190, "VIA", "CAI", size=26)
-    body += field(sx + 184, 190, "TO", "GCC", size=26, vfill=ORANGE)
+    body += field(sx, 190, "FROM", "ENG", size=26)
+    body += field(sx + 92, 190, "VIA", "AUT", size=26)
+    body += field(sx + 184, 190, "TO", "CLD", size=26, vfill=ORANGE)
     body += field(sx, 258, "SEAT", "GM", size=17)
     body += field(sx + 92, 258, "GATE", "SV", size=17)
     body += field(sx + 184, 258, "ZONE", "1", size=17)
@@ -90,8 +92,8 @@ def hero():
     for i, x in enumerate(range(60, 1150, 36)):
         b += (f'<circle cx="{x}" cy="526" r="2.4" fill="{FLAP}" opacity="0.25">'
               f'<animate attributeName="opacity" values="0.15;1;0.15" dur="2.4s" begin="{i*0.06:.2f}s" repeatCount="indefinite"/></circle>')
-    return svg(W, H, b, "Boarding pass: Mohab Badawy, Kuwait to Cairo to the GCC. Founder and engineer.",
-               ("sg700", "plex400", "plex600", "serifi"))
+    return svg(W, H, b, "Boarding pass: Mohab Badawy. Engineering to automation and AI agents, next stop cloud.",
+               ("sg700", "plex400", "plex600", "brico"))
 
 
 # ═══════════════════════════════════════════════════════════ DEPARTURES BOARD
@@ -161,9 +163,9 @@ def ticket(fname, flight, route, name, desc, fields, gate, seat, status, scol, l
     W, H = 590, 290
     X, Y, TW, TH, SX = 14, 14, 562, 258, 418
     d = ticket_shape(X, Y, TW, TH, SX, r=14, notch=11)
-    b = f'<defs><clipPath id="c"><path d="{d}"/></clipPath></defs>'
+    b = f'<defs><clipPath id="c{seed}"><path d="{d}"/></clipPath></defs>'
     body = f'<path d="{d}" fill="{PAPER}"/>'
-    body += f'<g clip-path="url(#c)"><rect x="{X}" y="{Y}" width="{TW}" height="{TH}" filter="url(#paper)"/>'
+    body += f'<g clip-path="url(#c{seed})"><rect x="{X}" y="{Y}" width="{TW}" height="{TH}" filter="url(#paper)"/>'
     body += f'<rect x="{X}" y="{Y}" width="{TW}" height="44" fill="{INK}"/><rect x="{SX}" y="{Y}" width="{X+TW-SX}" height="44" fill="{ORANGE}"/></g>'
     body += t(X + 22, Y + 28, f"FLIGHT {flight}", size=12, fill=CREAM, ls=3, weight=600)
     body += t(SX - 22, Y + 28, route, size=12, fill=ORANGE, ls=2.4, anchor="end", weight=600)
@@ -185,6 +187,7 @@ def ticket(fname, flight, route, name, desc, fields, gate, seat, status, scol, l
     body += t(sx, Y + 232, f"{link} ↗", size=11, fill=INK, ls=0.6, weight=600)
     b += f'<g filter="url(#shadow)">{body}</g>'
     write(fname, svg(W, H, b, f"{name}: {desc[0]} {desc[1]}", ("sg700", "sg500", "plex400", "plex600")))
+    return b
 
 
 # ═════════════════════════════════════════════════════════════════ PASSPORT
@@ -235,7 +238,7 @@ def stamp(kind, cx, cy, rot, color, lines, begin, size=None, dashed=False, w=Non
 
 def passport():
     W, H = 1200, 590
-    b = backdrop(W, H)
+    b = ""
     px, py, pw, ph = 46, 46, 554, 498
     # booklet cover edge
     b += f'<g filter="url(#shadow)"><rect x="{px-10}" y="{py-10}" width="{2*pw+20}" height="{ph+20}" rx="18" fill="#1d2a3a"/></g>'
@@ -279,9 +282,7 @@ def passport():
     mrz2 = "MB2028&lt;&lt;ECE&lt;AUC&lt;&lt;FOUNDER&lt;GM&lt;SOLVEN&lt;&lt;&lt;&lt;&lt;&lt;"
     b += t(L + 28, py + ph - 44, mrz1, size=15, fill="#2c3e57", ls=3.2)
     b += t(L + 28, py + ph - 20, mrz2, size=15, fill="#2c3e57", ls=3.2)
-    b += t(R + 28, py + ph - 20, "OFF DUTY: PS5 · FOOTBALL · TRAVEL", size=11, fill="#2c3e57", ls=2.6)
-    return svg(W, H, b, "Passport pages: skills, certifications and experience as stamps",
-               ("sg700", "plex400", "plex600"))
+    return b
 
 
 # ═══════════════════════════════════════════════════════════════════ DIVIDER
@@ -293,24 +294,155 @@ def divider():
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{DEFS}{b}</svg>'
 
 
-write("bp-hero.svg", hero())
+# ═══════════════════════════════════════════════════════════════ ITINERARY
+LEGS = [
+    ("2026 → NOW", "SLV", "Solven · Cairo", "Co-founder &amp; General Manager",
+     ["Software, automation &amp; AI agents for SMEs in Egypt and the GCC.", "Leads sales, proposals, product and delivery."], "IN FLIGHT"),
+    ("2026 → NOW", "NDG", "Nudge", "Co-founder",
+     ["Study-planning app for university students.", "Web beta, pitching at AUC's startup competition."], "IN FLIGHT"),
+    ("JUL 2026", "DBZ", "Dubizzle", "IT Intern",
+     ["CrowdStrike · FortiGate · FortiAnalyzer · networking · telephony.", "Presented a telephony comparison brief to the IT team."], "LANDED"),
+    ("EARLIER", "QNB", "QNB Alahli · SIAC Construction", "Intern",
+     ["Internships in banking and construction."], "LANDED"),
+    ("AT AUC", "AQC", "Al Quds Club", "Co-head of Events",
+     ["Runs the club's events alongside a fellow co-head."], "IN FLIGHT"),
+    ("PART-TIME", "MTH", "A-Level Mathematics", "Teaching Assistant",
+     ["Supporting A-Level maths students."], "LOGGED"),
+    ("2024 → 2028", "AUC", "American University in Cairo", "B.Sc. Electrical &amp; Computer Engineering",
+     ["GPA 3.72 · 50% first-year merit award."], "EN ROUTE"),
+]
+LEG_COL = {"IN FLIGHT": ORANGE, "EN ROUTE": FLAP, "LANDED": GREEN, "LOGGED": MUTED}
+
+
+def itinerary():
+    W = 1200
+    top = 132
+    heights = [56 + 22 * len(l[4]) for l in LEGS]
+    H = top + sum(heights) + 44
+    b = backdrop(W, H)
+    b += f'<g transform="translate(64 64) rotate(-20) scale(0.85)"><path d="{PLANE}" fill="{FLAP}"/></g>'
+    b += t(92, 74, "ITINERARY", size=30, fill=CREAM, font=SANS, weight=700, ls=5)
+    b += t(W - 56, 62, "PASSENGER · MOHAB BADAWY", size=11.5, fill=MUTED, ls=2.4, anchor="end")
+    b += t(W - 56, 82, "EXPERIENCE · LEADERSHIP · EDUCATION", size=11.5, fill=CREAM, ls=2.4, anchor="end")
+    b += f'<path d="M56 104 H{W-56}" stroke="{CREAM}" stroke-opacity="0.25"/>'
+    lx = 236
+    ys = []
+    y = top
+    for h in heights:
+        ys.append(y)
+        y += h
+    route = f"M{lx} {ys[0]+18} V{ys[-1]+18}"
+    b += f'<path d="{route}" stroke="{MUTED}" stroke-opacity="0.5" stroke-width="1.6" stroke-dasharray="2 7" stroke-linecap="round"/>'
+    b += (f'<g><g transform="rotate(90)"><path d="{PLANE}" fill="{ORANGE}" transform="scale(0.8)"/></g>'
+          f'<animateMotion dur="9s" repeatCount="indefinite" path="{route}"/></g>')
+    for i, ((when, code, title, role, lines, status), y0) in enumerate(zip(LEGS, ys)):
+        col = LEG_COL[status]
+        row = ""
+        row += t(56, y0 + 24, when, size=13, fill=FLAP, ls=2, weight=600)
+        row += f'<circle cx="{lx}" cy="{y0+18}" r="7" fill="#0f1013" stroke="{col}" stroke-width="2.5"/>'
+        if status == "IN FLIGHT":
+            row += (f'<circle cx="{lx}" cy="{y0+18}" r="7" fill="none" stroke="{col}" stroke-width="2">'
+                    f'<animate attributeName="r" values="7;18" dur="1.8s" repeatCount="indefinite"/>'
+                    f'<animate attributeName="opacity" values="0.9;0" dur="1.8s" repeatCount="indefinite"/></circle>')
+        row += f'<rect x="268" y="{y0}" width="62" height="30" rx="6" fill="{PAPER}"/>'
+        row += t(299, y0 + 20, code, size=14, fill=INK, ls=2, weight=600, anchor="middle")
+        row += (f'<text x="352" y="{y0+23}" font-family="{SANS}" font-size="22" font-weight="700" fill="{CREAM}">{title}'
+                f'<tspan font-size="16" font-weight="500" fill="{ORANGE}">   {role}</tspan></text>')
+        for j, ln in enumerate(lines):
+            row += t(352, y0 + 50 + j * 22, ln, size=15, fill=MUTED, font=SANS, weight=500)
+        pw = len(status) * 9 + 40
+        row += f'<rect x="{W-56-pw}" y="{y0+2}" width="{pw}" height="28" rx="14" fill="none" stroke="{col}" stroke-opacity="0.7"/>'
+        row += f'<circle cx="{W-56-pw+16}" cy="{y0+16}" r="4" fill="{col}"/>'
+        row += t(W - 56 - pw + 28, y0 + 21, status, size=11.5, fill=CREAM, ls=2)
+        if i < len(LEGS) - 1:
+            row += f'<path d="M268 {y0 + heights[i] - 14} H{W-56}" stroke="{CREAM}" stroke-opacity="0.07"/>'
+        b += rise(row, dy=18, begin=0.15 + i * 0.1, dur=0.8)
+    b += t(56, H - 22, "ALL LEGS CONFIRMED · ISSUED IN CAIRO", size=10.5, fill=MUTED, ls=2.2)
+    return svg(W, H, b, "Itinerary: Solven co-founder and GM, Nudge co-founder, Dubizzle IT intern, QNB and SIAC internships, Al Quds club events co-head, A-Level maths assistant, AUC ECE 2024-2028",
+               ("sg700", "sg500", "plex400", "plex600"))
+
+
+# ═══════════════════════════════════════════════════════════ SECTION HEADERS
+def header(title, r1, r2):
+    W, H = 1200, 132
+    b = backdrop(W, H)
+    b += f'<rect x="24" y="24" width="{W-48}" height="{H-48}" rx="14" fill="#08080a" stroke="#26262b"/>'
+    b += f'<g transform="translate(78 66) rotate(-20)"><path d="{PLANE}" fill="{FLAP}"/></g>'
+    b += t(106, 78, title, size=32, fill=FLAP, font=SANS, weight=700, ls=5)
+    b += t(W - 64, 62, r1, size=12, fill=MUTED, ls=2.6, anchor="end")
+    b += t(W - 64, 84, r2, size=12, fill=CREAM, ls=2.6, anchor="end")
+    return svg(W, H, b, title.title(), ("sg700", "plex400"))
+
+
+def contact_tile(label, value):
+    W, H = 290, 104
+    b = f'<rect width="{W}" height="{H}" rx="16" fill="url(#lamp)"/><rect width="{W}" height="{H}" rx="16" filter="url(#grain)"/>'
+    b += f'<rect x="10" y="10" width="{W-20}" height="{H-20}" rx="10" fill="#08080a" stroke="#26262b"/>'
+    b += f'<rect x="10" y="10" width="6" height="{H-20}" rx="3" fill="{ORANGE}"/>'
+    b += t(32, 44, label, size=11, fill=FLAP, ls=2.6, weight=600)
+    b += t(32, 72, value, size=17, fill=CREAM, font=SANS, weight=700)
+    b += t(W - 28, 72, "↗", size=18, fill=ORANGE, anchor="end", weight=600)
+    return svg(W, H, b, f"{label}: {value}", ("sg700", "plex400", "plex600"))
+
+
+
+# ═══════════════════════════════════════════════ CONNECTED SECTIONS (header + content in one panel)
+def header_body(title, r1, r2, W=1200):
+    b = f'<rect x="24" y="24" width="{W-48}" height="84" rx="14" fill="#08080a" stroke="#26262b"/>'
+    b += f'<g transform="translate(78 66) rotate(-20)"><path d="{PLANE}" fill="{FLAP}"/></g>'
+    b += t(106, 78, title, size=32, fill=FLAP, font=SANS, weight=700, ls=5)
+    b += t(W - 64, 62, r1, size=12, fill=MUTED, ls=2.6, anchor="end")
+    b += t(W - 64, 84, r2, size=12, fill=CREAM, ls=2.6, anchor="end")
+    return b
+
+
+def section(title, r1, r2, content, content_h, label, faces, top=108):
+    W, H = 1200, top + content_h + 18
+    b = backdrop(W, H) + header_body(title, r1, r2) + f'<g transform="translate(0 {top})">{content}</g>'
+    return svg(W, H, b, label, faces)
+
+
+def tile_body(label, value, w=282):
+    b = f'<rect x="0" y="0" width="{w}" height="84" rx="10" fill="#08080a" stroke="#26262b"/>'
+    b += f'<rect x="0" y="0" width="6" height="84" rx="3" fill="{ORANGE}"/>'
+    b += t(24, 34, label, size=11, fill=FLAP, ls=2.6, weight=600)
+    b += t(24, 62, value, size=17, fill=CREAM, font=SANS, weight=700)
+    b += t(w - 20, 62, "↗", size=18, fill=ORANGE, anchor="end", weight=600)
+    return b
+
+write("bp-pass4.svg", hero())
+write("bp-itinerary.svg", itinerary())
 write("bp-departures.svg", departures())
-write("bp-passport.svg", passport())
 write("bp-route.svg", divider())
-ticket("bp-solven.svg", "SV001", "CAI → GCC", "Solven",
+tk_solven = ticket("bp-solven.svg", "SV001", "CAI → GCC", "Solven",
        ("Software, automation &amp; AI agents for", "SMEs across Egypt and the GCC."),
        [("ROLE", "Co-founder &amp; GM"), ("STACK", "Next.js · FastAPI · n8n")],
        "SV", "GM", "LIVE", "#1f9a58", "solvenhq.com", 11)
-ticket("bp-nudge.svg", "ND002", "CAI → APP STORE", "Nudge",
+tk_nudge = ticket("bp-nudge.svg", "ND002", "CAI → APP STORE", "Nudge",
        ("A cozy study world that plans your", "study time. Built for uni students."),
        [("ROLE", "Co-founder"), ("STAGE", "Web beta · AUC pitch")],
        "ND", "CO-F", "BETA", "#e0a01a", "studynudge.app", 12)
-ticket("bp-clinic.svg", "CL003", "CAI → LIVE", "Clinic Platform",
+tk_clinic = ticket("bp-clinic.svg", "CL003", "CAI → LIVE", "Clinic Platform",
        ("A pediatric &amp; lactation practice,", "online end to end, for a real client."),
        [("SHIPS", "Site · booking · staff app"), ("INFRA", "Render · custom domain")],
        "CL", "BUILD", "LIVE", "#1f9a58", "dralaahussien.com", 13)
-ticket("bp-ops.svg", "OP004", "WEB → YOU", "Ops Control Engine",
+tk_ops = ticket("bp-ops.svg", "OP004", "WEB → YOU", "Ops Control Engine",
        ("A real-time operations command center", "on simulated data. Try it live."),
        [("BY", "Solven"), ("FOR", "SME operations teams")],
        "OP", "DEMO", "ONLINE", "#1f9a58", "demo.solvenhq.com", 14)
 print("built")
+
+# connected sections
+tickets_content = (f'<g transform="translate(10 6)">{tk_solven}</g><g transform="translate(600 6)">{tk_nudge}</g>'
+                   f'<g transform="translate(10 290)">{tk_clinic}</g><g transform="translate(600 290)">{tk_ops}</g>')
+write("bp-sec-tickets.svg", section("YOUR TICKETS", "PROJECTS · LIVE BUILDS", "FOUR FLIGHTS IN SERVICE",
+      tickets_content, 572, "Your tickets: Solven, Nudge, Clinic Platform, Ops Control Engine",
+      ("sg700", "sg500", "plex400", "plex600")))
+write("bp-sec-passport.svg", section("PASSPORT", "SKILLS · CERTIFICATIONS", "EXPERIENCE STAMPS",
+      f'<g transform="translate(0 -24)">{passport()}</g>', 548,
+      "Passport: skills, certifications and experience as stamps", ("sg700", "plex400", "plex600")))
+tiles = "".join(f'<g transform="translate({24 + i*(279+12)} 16)">{tile_body(l, v, w=279)}</g>' for i, (l, v) in enumerate(
+    [("LINKEDIN", "mohab-badawy-auc"), ("EMAIL", "mohab@solvenhq.com"), ("COMPANY", "solvenhq.com"), ("PRODUCT", "studynudge.app")]))
+write("bp-sec-contact.svg", section("CONTACT", "ARRIVALS · GET IN TOUCH", "MOHAB BADAWY", tiles, 108,
+      "Contact: LinkedIn mohab-badawy-auc, email mohab@solvenhq.com, solvenhq.com, studynudge.app",
+      ("sg700", "plex400", "plex600")))

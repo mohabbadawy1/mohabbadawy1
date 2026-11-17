@@ -23,12 +23,13 @@ MUTED = "#8b8579"
 
 SANS = "'SG', 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
 MONO = "'PX', 'IBM Plex Mono', ui-monospace, Menlo, monospace"
+DISPLAY = "'BG', 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif"
 SERIF = "'IS', 'Instrument Serif', Georgia, serif"
 
 _FACES = {
     "sg700": ("SG", 700, "normal"), "sg500": ("SG", 500, "normal"),
     "plex400": ("PX", 400, "normal"), "plex600": ("PX", 600, "normal"),
-    "serifi": ("IS", 400, "italic"), "serif": ("IS", 400, "normal"),
+    "serifi": ("IS", 400, "italic"), "brico": ("BG", 700, "normal"), "serif": ("IS", 400, "normal"),
 }
 
 PLANE = ("M13 0 L-3 -3.2 L-8 -12 L-11.5 -12 L-8 -2.6 L-14.5 -2.6 L-17.5 -7 L-20 -7 L-18 0 "
