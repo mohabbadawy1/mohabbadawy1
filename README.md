@@ -14,6 +14,6 @@
 
 <img src="assets/bp-flightlog.svg" width="100%" alt="Flight log of GitHub contributions over the last 12 months" />
 
-<a href="https://www.linkedin.com/in/mohab-badawy-auc/"><img src="assets/bp-sec-contact.svg" width="100%" alt="Contact: LinkedIn mohab-badawy-auc, email mohab@solvenhq.com, solvenhq.com, studynudge.app" /></a>
+<a href="https://www.linkedin.com/in/mohab-badawy-auc/"><img src="assets/bp-sec-contact2.svg" width="100%" alt="Contact: LinkedIn mohab-badawy-auc, email mohab.badawy12@gmail.com, solvenhq.com, studynudge.app" /></a>
 
-<p align="center"><sub><a href="https://www.linkedin.com/in/mohab-badawy-auc/">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:mohab@solvenhq.com">Email</a> &nbsp;·&nbsp; <a href="https://solvenhq.com">Solven</a> &nbsp;·&nbsp; <a href="https://studynudge.app">Nudge</a></sub></p>
+<p align="center"><sub><a href="https://www.linkedin.com/in/mohab-badawy-auc/">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:mohab.badawy12@gmail.com">Email</a> &nbsp;·&nbsp; <a href="https://solvenhq.com">Solven</a> &nbsp;·&nbsp; <a href="https://studynudge.app">Nudge</a></sub></p>

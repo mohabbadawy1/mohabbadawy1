@@ -406,7 +406,7 @@ def tile_body(label, value, w=282):
     b = f'<rect x="0" y="0" width="{w}" height="84" rx="10" fill="#08080a" stroke="#26262b"/>'
     b += f'<rect x="0" y="0" width="6" height="84" rx="3" fill="{ORANGE}"/>'
     b += t(24, 34, label, size=11, fill=FLAP, ls=2.6, weight=600)
-    b += t(24, 62, value, size=17, fill=CREAM, font=SANS, weight=700)
+    b += t(24, 62, value, size=17 if len(value) < 20 else 14.5, fill=CREAM, font=SANS, weight=700)
     b += t(w - 20, 62, "↗", size=18, fill=ORANGE, anchor="end", weight=600)
     return b
 
@@ -442,7 +442,7 @@ write("bp-sec-passport.svg", section("PASSPORT", "SKILLS · CERTIFICATIONS", "EX
       f'<g transform="translate(0 -24)">{passport()}</g>', 548,
       "Passport: skills, certifications and experience as stamps", ("sg700", "plex400", "plex600")))
 tiles = "".join(f'<g transform="translate({24 + i*(279+12)} 16)">{tile_body(l, v, w=279)}</g>' for i, (l, v) in enumerate(
-    [("LINKEDIN", "mohab-badawy-auc"), ("EMAIL", "mohab@solvenhq.com"), ("COMPANY", "solvenhq.com"), ("PRODUCT", "studynudge.app")]))
-write("bp-sec-contact.svg", section("CONTACT", "ARRIVALS · GET IN TOUCH", "MOHAB BADAWY", tiles, 108,
-      "Contact: LinkedIn mohab-badawy-auc, email mohab@solvenhq.com, solvenhq.com, studynudge.app",
+    [("LINKEDIN", "mohab-badawy-auc"), ("EMAIL", "mohab.badawy12@gmail.com"), ("COMPANY", "solvenhq.com"), ("PRODUCT", "studynudge.app")]))
+write("bp-sec-contact2.svg", section("CONTACT", "ARRIVALS · GET IN TOUCH", "MOHAB BADAWY", tiles, 108,
+      "Contact: LinkedIn mohab-badawy-auc, email mohab.badawy12@gmail.com, solvenhq.com, studynudge.app",
       ("sg700", "plex400", "plex600")))
